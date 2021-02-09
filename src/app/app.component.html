@@ -1,0 +1,32 @@
+<mat-toolbar color="primary" *ngIf="showHeader">
+  <mat-toolbar-row>
+    <button mat-icon-button>
+      <mat-icon (click)="changeView()">menu</mat-icon>
+    </button>
+    <h1>Product Management</h1>
+    <span class="menu-spacer"></span>
+    <div>
+
+    </div>
+  </mat-toolbar-row>
+  <mat-divider [vertical]="true"></mat-divider>
+</mat-toolbar>
+
+<mat-drawer-container class="example-container mat-typography" >
+  <mat-drawer #drawer mode="side" disableClose="true" opened="true" *ngIf="showNav">
+    <mat-nav-list>
+      <mat-list-item (click)="goToList()">
+        <mat-icon mat-list-icon [ngClass]="{'icon-round': !isExpanded}">list</mat-icon>
+        <h4 mat-line *ngIf="isExpanded">List</h4>
+      </mat-list-item>
+      <mat-list-item (click)="goToTrash()">
+        <mat-icon mat-list-icon [ngClass]="{'icon-round': !isExpanded}">delete</mat-icon>
+        <h4 mat-line *ngIf="isExpanded">Trash</h4>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-drawer>
+
+  <div class="example-sidenav-content"  style="height: 88vh;">
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>

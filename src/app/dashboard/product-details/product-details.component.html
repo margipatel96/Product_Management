@@ -1,0 +1,72 @@
+<div class="container" style="margin: 20px;">
+  <div class="row">
+    
+      <div class="col-md-1">
+        <span class="material-icons" style="font-size: 40px;">
+          keyboard_arrow_left
+        </span>
+      </div>
+
+      <div class="col-md-11">
+        <mdb-breadcrumb>
+          <mdb-breadcrumb-item class="blue-text" (click)="goToHome()">Home</mdb-breadcrumb-item>
+          <mdb-breadcrumb-item class="active">{{headerText}}</mdb-breadcrumb-item>
+        </mdb-breadcrumb>
+      </div>  
+  </div>
+</div>
+
+
+<div class="container" style="margin:auto; margin-top: 120px;">
+  <div class="row">
+    <!--Products-->
+    <div class="col-md-12" style="padding: 0px;">
+      <!--Image-->
+      <div class="col-md-4" style="display: inline-block;">
+        <mat-card style="padding: 0px;" class="imagePrd">
+          <img mat-card-image src="{{prdData.image}}" alt="Photo of a Shiba Inu" style="border-radius: 5px;">
+        </mat-card>
+      </div>
+
+      <!--Description-->
+      <div class="col-md-8" style="display: inline-block; position: absolute;">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image" style="width: 0px;"></div>
+          <mat-card-title>{{prdData.name}}</mat-card-title>
+          <mat-card-subtitle style="margin-top: 10px; font-size: 17px; color: #444;">{{prdData.Category}}
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            <span style="color: gray">
+              {{prdData.description}}
+            </span>
+          </p>
+        </mat-card-content>
+      </div>
+    </div>
+
+    <!--Rating-->
+    <div class="col-md-4" style="margin-top: 30px; text-align: center;">
+      <span class="material-icons" (click)="clkStar(1)" style="color: {{isRated1 ? strclr : ''}}; cursor: pointer;">
+        {{isRated1 ? 'star_rate' : 'star_border'}}
+      </span>
+      <span class="material-icons star" (click)="clkStar(2)"
+        style="color:  {{isRated2 ? strclr : ''}}; cursor: pointer;">
+        {{isRated1 ? 'star_rate' : 'star_border'}}
+      </span>
+      <span class="material-icons star" (click)="clkStar(3)"
+        style="color:  {{isRated3 ? strclr : ''}}; cursor: pointer;">
+        {{isRated1 ? 'star_rate' : 'star_border'}}
+      </span>
+      <span class="material-icons star" (click)="clkStar(4)"
+        style="color:  {{isRated4 ? strclr : ''}}; cursor: pointer;">
+        {{isRated1 ? 'star_rate' : 'star_border'}}
+      </span>
+      <span class="material-icons star" (click)="clkStar(5)"
+        style="color:  {{isRated5 ? strclr : ''}}; cursor: pointer;">
+        {{isRated1 ? 'star_rate' : 'star_border'}}
+      </span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+.greenBdgCls{
+    border-radius: 3px;
+    background-color: #2F8C001a;
+    padding: 7px 10px;
+    display: inline-block;
+    margin-right: 20px;
+    color: #2F8C00;
+    cursor: pointer;
+}
+
+.redBdgCls{
+    border-radius: 3px;
+    background-color: #2F8C001a;
+    padding: 7px 10px;
+    display: inline-block;
+    margin-right: 20px;
+    color: gray;
+    cursor: pointer;
+}
+
+.greenBdgCls:hover {
+    border-radius: 3px;
+    background-color: #2F8C00;
+    padding: 7px 10px;
+    display: inline-block;
+    margin-right: 20px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.redBdgCls:hover{
+    border-radius: 3px;
+    background-color: gray;
+    padding: 7px 10px;
+    display: inline-block;
+    margin-right: 20px;
+    color: #fff;
+    cursor: pointer;
+}

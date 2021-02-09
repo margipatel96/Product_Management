@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row">
+      <!--Products-->
+      <div class="col-md-12" style="padding: 0px;" *ngIf="productList.length > 0">
+        <div class="col-md-4" *ngFor="let item of productList; let i=index"
+          style="display: inline-block; margin-top: 20px;">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image" style="width: 0px;"></div>
+              <mat-card-title>{{item.name}}</mat-card-title>
+              <!-- <mat-card-subtitle>{{item.name}}</mat-card-subtitle> -->
+            </mat-card-header>
+            <img mat-card-image src="{{item.image}}"
+              alt="Photo of a Shiba Inu">
+            <mat-card-content>
+              <p>
+                <span style="gray">
+                  {{item.description}}
+                </span>
+              </p>
+            </mat-card-content>
+            <mat-card-actions style="padding: 10px;">
+             <div style="text-align: center;">
+                 <span class="greenBdgCls" (click)="restoreProduct(item.id)">
+                    <span class="material-icons" style="font-size: 25px;">
+                        restore_from_trash
+                        </span>
+                        <span style="position: relative; top: -5px; font-size: 18px;">
+                          Restore
+                        </span>
+                 </span>
+                 <span class="redBdgCls" style="margin: 0px;" (click)="removeProduct(item.id)">
+                    <!-- <span class="material-icons" style="color: gray; font-size: 25px;" (click)="removeProduct(i)">
+                        delete
+                      </span>  -->
+                      <span class="material-icons">
+                        delete_outline
+                        </span>
+                      <span style="position: relative; top: -5px; font-size: 18px;">
+                        Remove
+                      </span>
+                </span>
+             </div>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <!--No records found-->
+   <div class="col-md-12" *ngIf="productList.length == 0" style="margin-top: 15px;">
+      <h2 style="color: #E88421">
+          No Products found.
+      </h2>
+   </div>
+

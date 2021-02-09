@@ -1,0 +1,120 @@
+<div class="container" style="margin: 20px;">
+  <div class="row">
+    <div class="col-md-12">
+      <mdb-breadcrumb >
+        <mdb-breadcrumb-item class="blue-text" (click)="goToHome()">Home</mdb-breadcrumb-item>
+           <mdb-breadcrumb-item class="active">{{headerText}}</mdb-breadcrumb-item>
+      </mdb-breadcrumb>
+    </div>
+    <div class="col-md-12">
+      <h2>
+        {{headerText}} Product
+      </h2>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="margin: 20px;">
+  <div class="row">
+    <div class="col-md-12" style="padding: 0px;">
+      <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
+        <!--Name-->
+        <div class="form-group col-md-6 blk">
+          <label>Item Name</label>
+          <input type="text" formControlName="name" class="form-control"
+          [ngClass]="{ 'is-invalid': f.name.errors && f.name.touched }" />
+          <div *ngIf="f.name.errors && f.name.touched" class="invalid-feedback">
+            <div *ngIf="f.name.errors.required">Item Name is required</div>
+            <div *ngIf="f.name.errors.maxlength"> Title must be of max 50 characters.</div>
+          </div>
+        </div>
+
+        <!--Description-->
+        <div class="form-group col-md-6 blk">
+          <label>Description</label>
+          <input type="text" formControlName="description" class="form-control"
+            [ngClass]="{ 'is-invalid': f.description.errors &&  f.description.touched }" />
+          <div *ngIf="f.description.errors && f.description.touched" class="invalid-feedback">
+            <div *ngIf="f.description.errors.required">Description is required</div>
+            <div *ngIf="f.description.errors.minlength">Description must be of min 150 characters.</div>
+          </div>
+        </div>
+
+        <!--price-->
+        <div class="form-group col-md-6 blk">
+          <label>Price</label>
+          <input type="number" formControlName="price" class="form-control"
+            [ngClass]="{ 'is-invalid': f.price.errors && f.price.touched }" />
+          <div *ngIf="f.price.errors && f.price.touched" class="invalid-feedback">
+            <div *ngIf="f.price.errors.required">Price is required</div>
+          </div>
+        </div>
+
+        <!--Unit-->
+        <div class="form-group col-md-6 blk">
+          <label>Unit</label>
+          <input type="text" formControlName="unit" class="form-control"
+          [ngClass]="{ 'is-invalid': f.unit.errors && f.unit.touched }" />
+          <div *ngIf="f.unit.errors && f.unit.touched" class="invalid-feedback">
+            <div *ngIf="f.unit.errors.required">Unit is required</div>
+          </div>
+        </div>
+
+        <!--Stock-->
+        <div class="form-group col-md-6 blk">
+          <label>Available Stock</label>
+          <input type="number" formControlName="stockQty" class="form-control"
+          [ngClass]="{ 'is-invalid': f.stockQty.errors && f.stockQty.touched }" />
+          <div *ngIf="f.stockQty.errors && f.stockQty.touched" class="invalid-feedback">
+            <div *ngIf="f.stockQty.errors.required">Available Stock Qty is required</div>
+          </div>
+        </div>
+
+        <!--Category-->
+        <div class="form-group col-md-6 blk">
+          <label>Category</label>
+          <select name="category" id="category" formControlName="category" class="form-control"
+          [ngClass]="{ 'is-invalid': f.category.errors && f.category.touched }" >
+            <option value="null" disabled>Select</option>
+            <option value="Clothes">Clothes</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Mobiles">Mobiles</option>
+          </select>
+          <div *ngIf="f.category.errors && f.category.touched" class="invalid-feedback">
+            <div *ngIf="f.category.errors.required">Please select category</div>
+          </div>
+        </div>
+
+        <!--Location-->
+        <div class="form-group col-md-6 blk">
+          <label>Location</label>
+          <select name="location" id="location" formControlName="location" class="form-control"
+          [ngClass]="{ 'is-invalid': f.location.errors && f.location.touched }" >
+            <option value="null" disabled>Select</option>
+            <option value="Room1">Room1</option>
+            <option value="Room2">Room2</option>
+          </select>
+          <div *ngIf="f.location.errors && f.location.touched" class="invalid-feedback">
+            <div *ngIf="f.location.errors.required">Please select location</div>
+          </div>
+        </div>
+
+        <!--Image-->
+        <div class="form-group col-md-6 blk">
+          <label>Image</label>
+          <input type="text" formControlName="image" class="form-control"
+            [ngClass]="{ 'is-invalid': f.image.errors && f.image.touched}" placeholder="ex. assets/images/TV11.jpg" />
+          <div *ngIf="f.image.errors && f.image.touched" class="invalid-feedback">
+            <div *ngIf="f.image.errors.required">Image is required</div>
+          </div>
+        </div>
+
+        <!--Save-->
+        <div class="form-group col-md-12" style="margin-top: 15px;">
+          <button class="btn btn-primary">Save</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
